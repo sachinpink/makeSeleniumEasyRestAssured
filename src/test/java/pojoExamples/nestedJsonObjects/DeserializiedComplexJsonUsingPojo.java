@@ -10,6 +10,34 @@ import io.restassured.response.Response;
 public class DeserializiedComplexJsonUsingPojo {
 
 	// This complex example of deserilization using pojo classes 
+	
+	/*
+	 * {
+  "glossary": {
+    "title": "example glossary",
+    "GlossDiv": {
+      "title": "S",
+      "GlossList": {
+        "GlossEntry": {
+          "ID": "SGML",
+          "SortAs": "SGML",
+          "GlossTerm": "Standard Generalized Markup Language",
+          "Acronym": "SGML",
+          "Abbrev": "ISO 8879:1986",
+          "GlossDef": {
+            "para": "A meta-markup language,.",
+            "GlossSeeAlso": [
+              "GML",
+              "XML"
+            ]
+          },
+          "GlossSee": "markup"
+        }
+      }
+    }
+  }
+}
+	 */
 	public static void main(String[] args) throws JsonMappingException, JsonProcessingException 
 	{
 		Response res= given()
@@ -19,8 +47,7 @@ public class DeserializiedComplexJsonUsingPojo {
 		.then()
 			.assertThat().statusCode(200).extract().response();
 		
-		complexPojo complexResponse = res.as(complexPojo.class);
-//		
+		complexPojo complexResponse = res.as(complexPojo.class);	
 //		ObjectMapper mapper = new ObjectMapper();
 //		//mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 //	    complexPojo complexResponse = mapper.readValue(res.asString(), complexPojo.class);
