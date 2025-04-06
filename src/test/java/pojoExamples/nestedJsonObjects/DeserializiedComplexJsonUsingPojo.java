@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 public class DeserializiedComplexJsonUsingPojo {
 
+	// This complex example of deserilization using pojo classes 
 	public static void main(String[] args) throws JsonMappingException, JsonProcessingException 
 	{
 		Response res= given()
